@@ -14,6 +14,11 @@ let movingUp = false;
 let movingDown = false;
 let movingLeft = false;
 let movingRight = false;
+let wallX;
+let wallY;
+let wallW = 50;
+let wallH = 50;
+let wallDX = 5;
 
 
 //Creating Image
@@ -25,12 +30,17 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   luigiX = width/2;
   luigiY = height/2;
+  wallX = width;
+  wallX = 0;
+  wallH = height;
 }
 
 function draw() {
   background(220);
   displayLuigi();
+  displayWall();
   moveLuigi();
+  hitbox();
 }
 function keyPressed(){
   if (key === "w"){
@@ -78,3 +88,15 @@ function moveLuigi(){
 
 function displayLuigi(){
   image(luigi, luigiX, luigiY, 100, 100);
+}
+
+function moveWall() {
+  wallY = random(height/5, height);
+  if (wallX >= 0){
+  wallX -= wallDX;
+  }
+  if (wallx <= 0){
+    wallY = random(height/2, height);
+    wallX -= wallDX;
+
+}
