@@ -6,18 +6,16 @@
 // - describe what you did to take this project "above and beyond"
 
 let luigi;
-let luigiX;
-let luigiY;
-let luigiDX = 5;
-let luigiDY = 5;
+let luigiX, luigiY;
+let luigiDX = 10;
+let luigiDY = 10;
 let movingUp = false;
 let movingDown = false;
 let movingLeft = false;
 let movingRight = false;
-let wallX;
-let wallY;
-let wallW = 50;
-let wallH = 50;
+let wallX, wallY;
+let wallW = 100;
+let wallH;
 let wallDX = 5;
 
 
@@ -28,9 +26,8 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  luigiX = width/2;
-  luigiY = height/2;
-  wallX = width;
+  luigiX = width/7;
+  luigiY = height - height/7;
   wallX = 0;
   wallH = height;
 }
@@ -91,12 +88,20 @@ function displayLuigi(){
 }
 
 function moveWall() {
-  wallY = random(height/5, height);
   if (wallX >= 0){
-  wallX -= wallDX;
-  }
-  if (wallx <= 0){
     wallY = random(height/2, height);
-    wallX -= wallDX;
-
+    wallX = width;
+  }
+  wallX -= wallDX;
+}
+function hitBox(){
+  if (luigiY + 100 >= wallY) {
+    if (luigiX + 100 >= wallX) {
+      textSize(150);
+      fill("blue")
+      text("LOSE", width/8, height - height/2);
+      wallDX = 5;
+    }
+  }
+}
 }
