@@ -13,10 +13,7 @@
  let movingDown = false;
  let movingLeft = false;
  let movingRight = false;
-//  let wallX, wallY;
-//  let wallW = 100;
-//  let wallH;
-//  let wallDX = 5;
+
 
 
  //Creating Image
@@ -28,16 +25,13 @@
    createCanvas(windowWidth, windowHeight);
    luigiX = width/7;
    luigiY = height - height/7;
-  //  wallX = 0;
-  //  wallH = height;
  }
 
  function draw() {
    background(220);
    displayLuigi();
-  //  displayWall();
    moveLuigi();
-  //  hitbox();
+
  }
  function keyPressed(){
    if (key === "w"){
@@ -88,22 +82,6 @@
  }
 }
 
-//  function moveWall() {
-//    if (wallX >= 0){
-//      wallY = random(height/2, height);
-//      wallX = width;
-//    }
-//    wallX -= wallDX;
-//  }
-//  function hitBox(){
-//    if (luigiY + 100 >= wallY) {
-//      if (luigiX + 100 >= wallX) {
-//        textSize(150);
-//        fill("blue")
-//        text("LOSE", width/8, height - height/2);
-//        wallDX = 5;
-//      }
-//    }
-//  }
+
 
 
